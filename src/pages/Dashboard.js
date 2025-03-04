@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/Dashboard.css";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
+import { Chart, registerables } from "chart.js";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useNavigate } from "react-router-dom";
+
+Chart.register(...registerables);
 
 const Dashboard = () => {
   const [hiveData, setHiveData] = useState({
@@ -16,26 +19,10 @@ const Dashboard = () => {
   const navigate = useNavigate();
 
   const historicalDataMap = {
-    temperature: {
-      label: "Temperature (°C)",
-      data: [30, 32, 34, 33, 35],
-      borderColor: "red",
-    },
-    humidity: {
-      label: "Humidity (%)",
-      data: [55, 58, 60, 63, 61],
-      borderColor: "blue",
-    },
-    weight: {
-      label: "Weight (kg)",
-      data: [18.5, 19.2, 20, 20.8, 21],
-      borderColor: "green",
-    },
-    co2: {
-      label: "CO2 Levels (ppm)",
-      data: [380, 390, 400, 410, 420],
-      borderColor: "purple",
-    },
+    temperature: { label: "Temperature (°C)", data: [30, 32, 34, 33, 35], borderColor: "red" },
+    humidity: { label: "Humidity (%)", data: [55, 58, 60, 63, 61], borderColor: "blue" },
+    weight: { label: "Weight (kg)", data: [18.5, 19.2, 20, 20.8, 21], borderColor: "green" },
+    co2: { label: "CO2 Levels (ppm)", data: [380, 390, 400, 410, 420], borderColor: "purple" },
   };
 
   const toggleMetric = (metric) => {
@@ -46,14 +33,17 @@ const Dashboard = () => {
     );
   };
 
-  const historicalData = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May"],
-    datasets: selectedMetrics.map((metric) => ({
-      label: historicalDataMap[metric].label,
-      data: historicalDataMap[metric].data,
-      borderColor: historicalDataMap[metric].borderColor,
-      fill: false,
-    })),
+  const generateChartData = (type) => {
+    return {
+      labels: ["Jan", "Feb", "Mar", "Apr", "May"],
+      datasets: selectedMetrics.map((metric) => ({
+        label: historicalDataMap[metric].label,
+        data: historicalDataMap[metric].data,
+        borderColor: historicalDataMap[metric].borderColor,
+        backgroundColor: historicalDataMap[metric].borderColor,
+        fill: type === "area",
+      })),
+    };
   };
 
   const healthStatus =
@@ -87,28 +77,13 @@ const Dashboard = () => {
       <div className="live-monitoring">
         <div className="hive-status">
           <h2>
-            Hive Health: {" "}
-            <span
-              className={
-                healthStatus.includes("Critical")
-                  ? "critical"
-                  : healthStatus.includes("Warning")
-                  ? "warning"
-                  : "healthy"
-              }
-            >
-              {healthStatus}
-            </span>
+            Hive Health: <span className={healthStatus.includes("Critical") ? "critical" : healthStatus.includes("Warning") ? "warning" : "healthy"}>{healthStatus}</span>
           </h2>
         </div>
 
         <div className="sensor-boxes">
           {Object.keys(historicalDataMap).map((metric) => (
-            <div
-              key={metric}
-              className={`sensor-box ${selectedMetrics.includes(metric) ? "selected" : ""}`}
-              onClick={() => toggleMetric(metric)}
-            >
+            <div key={metric} className={`sensor-box ${selectedMetrics.includes(metric) ? "selected" : ""}`} onClick={() => toggleMetric(metric)}>
               <p>{metric === "temperature" ? "🌡️ Temperature" : metric === "humidity" ? "💧 Humidity" : metric === "weight" ? "⚖️ Weight" : "🛑 CO2 Levels"}</p>
               <h3>{hiveData[metric]} {metric === "weight" ? "kg" : metric === "co2" ? "ppm" : metric === "temperature" ? "°C" : "%"}</h3>
             </div>
@@ -119,7 +94,10 @@ const Dashboard = () => {
       <div className="charts">
         <h2>📊 Historical Data Comparison</h2>
         <div className="chart-container">
-          <Line data={historicalData} options={{ responsive: true, maintainAspectRatio: false }} />
+          <Line data={generateChartData("line")} options={{ responsive: true, maintainAspectRatio: false }} />
+        </div>
+        <div className="chart-container">
+          <Bar data={generateChartData("bar")} options={{ responsive: true, maintainAspectRatio: false }} />
         </div>
       </div>
 
