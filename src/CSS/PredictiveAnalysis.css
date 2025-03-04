@@ -1,0 +1,73 @@
+.predictive-analysis-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff8dc;
+}
+
+  
+  .riskassessment, .whatif-analysis, .alert, .confidenceinterval, .feedbacks {
+    background-color:white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+  }
+  .riskassessment, .whatif-analysis, .alert, .confidenceinterval, .feedbacks{
+    border: 2px solid black;
+    padding: 20px;
+  }
+  .aiforecast {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically if height is set */
+    flex-direction: column; /* Ensures content is stacked properly */
+    text-align: center; /* Aligns text to center */
+    width: 80%; /* Ensures it takes the full width */
+    margin: 20px auto; /* Adds some margin and centers it */
+    background-color: #f4f4f4;
+}
+
+  
+  .whatif-analysis input {
+    margin: 10px;
+  }
+  
+  .whatif-analysis button, .feedbacks button {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .feedbacks textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    padding: 5px;
+  }
+.mainsection{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+}  
+.predictive-analysis-container h2 {
+  color: black;
+}
+.aiforecast h2,
+.riskassessment h2,
+.whatif-analysis h2,
+.alert h2,
+.confidenceinterval h2,
+.feedbacks h2 {
+  color: black;
+}
+.aiforecast p,
+.riskassessment p,
+.whatif-analysis p,
+.alert p,
+.confidenceinterval p,
+.feedbacks p{
+  color: black;
+}

@@ -1,0 +1,152 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for Side-by-Side Sections */
+.section-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to the next line if there's not enough space */
+  justify-content: space-between; /* Space between sections */
+  margin: 20px; /* Margin around the container */
+}
+
+/* Individual Section Styles */
+.section {
+  flex: 1; /* Allow sections to grow equally */
+  min-width: 300px; /* Minimum width for each section */
+  margin: 10px; /* Margin between sections */
+  padding: 15px; /* Padding inside sections */
+  background-color: #fff;
+  border: 1px solid #ffcc00;
+  border-radius: 6px; /* Rounded corners */
+}
+
+/* Welcome Section */
+.welcome-section {
+  background-color: #ffcc00; /* Bee yellow */
+  color: #333;
+  text-align: center;
+  padding: 30px 10px; /* Reduced padding */
+  border-bottom: 3px solid #333; /* Thinner border */
+}
+
+/* Call-to-Action */
+.cta {
+  text-align: center;
+  margin: 15px 0; /* Reduced margin */
+}
+
+.cta button {
+  background-color: #333;
+  color: #ffcc00;
+  border: none;
+  padding: 10px 20px; /* Reduced padding */
+  font-size: 14px; /* Smaller font size */
+  cursor: pointer;
+  border-radius: 4px; /* Slightly smaller border radius */
+}
+
+.cta button:hover {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+/* Testimonials */
+.testimonial {
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #ffcc00; /* Thinner border */
+  padding-left: 8px; /* Reduced padding */
+  margin: 8px 0; /* Reduced margin */
+}
+
+/* List Styles */
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.list li {
+  background-color: #ffcc00;
+  margin: 4px 0; /* Reduced margin */
+  padding: 8px; /* Reduced padding */
+  border-radius: 4px; /* Slightly smaller border radius */
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Reduced gap */
+}
+
+.gallery img {
+  width: 180px; /* Reduced width */
+  height: auto;
+  border-radius: 6px; /* Slightly smaller border radius */
+}
+
+/* Social Media Links */
+.social-media {
+  text-align: center;
+}
+
+.social-links a {
+  margin: 0 8px; /* Reduced margin */
+  text-decoration: none;
+  color: #ffcc00;
+  font-weight: bold;
+}
+
+.social-links a:hover {
+  color: #333;
+}
+
+/* Poll Form */
+.poll-form {
+  margin: 15px 0; /* Reduced margin */
+}
+
+/* Upcoming Events */
+.upcoming-events {
+  background-color: #ffcc00;
+  padding: 15px; /* Reduced padding */
+  text-align: center;
+  border-radius: 6px; /* Slightly smaller border radius */
+}
+
+/* Newsletter Signup */
+input[type="email"] {
+  padding: 8px; /* Reduced padding */
+  border: 1px solid #ffcc00;
+  border-radius: 4px; /* Slightly smaller border radius */
+  margin-right: 8px; /* Reduced margin */
+}
+
+button {
+  background-color: #333;
+  color: #ffcc00;
+  border: none;
+  padding: 8px 15px; /* Reduced padding */
+  border-radius: 4px; /* Slightly smaller border radius */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+/* Contact Section */
+.contact-section {
+  background-color: #fff;
+  padding: 15px; /* Reduced padding */
+  border: 1px solid #ffcc00;
+  border-radius: 6px; /* Slightly smaller border radius */
+  text-align: center;
+}

@@ -1,0 +1,133 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #d4a017; /* Warm honey yellow */
+  color: #333;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+.sensor-boxes .sensor-box p{
+  font-size: 16px;
+}
+.live-monitoring .hive-status h2{
+  margin-top: 50px;
+  font-size: 20px;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
+  background: #fff3cd; /* Soft honey background */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h1 {
+  color: #ff9900;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.hive-status h2 {
+  background: #ffcc00;
+  padding: 5px;
+  border-radius: 8px;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.critical {
+  color: #d32f2f;
+}
+
+.warning {
+  color: #ff9800;
+}
+
+.healthy {
+  color: #388e3c;
+}
+
+.sensor-boxes {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0;
+}
+
+.sensor-box {
+  background: #fff;
+  border: 2px solid #ffcc00;
+  border-radius: 8px;
+  padding: 10px;
+  width: 20%;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.sensor-box:hover {
+  transform: scale(1.05);
+  background: #ffee58;
+}
+
+.chart-container {
+  width: 90%;
+  height: 250px;
+  margin: auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+  margin-top: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map {
+  height: 250px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.dataexport button {
+  background: #ff9900;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 12px;
+}
+
+.dataexport button:hover {
+  background: #cc7a00;
+}
+
+.weather, .predictive-analytics, .dataexport {
+  background: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+} 
+.predictive-analytics h2, 
+.predictive-analytics p { 
+  color: black; 
+}
+.weather h2,.weather p{
+  color: black;
+}
+.dataexport h2,.dataexport p{
+  color: black;
+}

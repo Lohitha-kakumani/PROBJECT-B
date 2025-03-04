@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import HiveHealth from "./pages/HiveHealth";
+import Reports from "./pages/Reports";
+import PredictiveAnalysis from "./pages/PredictiveAnalysis";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
+import FullMap from "./pages/FullMap";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        {/* Public Routes (No Navbar) */}
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+
+        {/* Private Routes (With Navbar) */}
+        <Route
+          path="/*"
+          element={
+            <>
+              <Navbar />
+              <Routes>
+                <Route path="/home" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/hivehealth" element={<HiveHealth />} />
+                <Route path="/reports" element={<Reports />} />
+                <Route path="/predictive-analysis" element={<PredictiveAnalysis />} />
+                <Route path="/fullmap" element={<FullMap />} />
+              </Routes>
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
