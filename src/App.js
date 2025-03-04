@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
@@ -14,6 +14,8 @@ const App = () => {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Navigate to="/login" />} />
+        
         {/* Public Routes (No Navbar) */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
